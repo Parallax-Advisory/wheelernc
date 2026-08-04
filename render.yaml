@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: wheelernc
+    runtime: static
+    plan: free
+    repo: https://github.com/Parallax-Advisory/wheelernc
+    branch: main
+    buildCommand: ""
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: false
+    domains:
+      - wheelernc.com
+      - www.wheelernc.com
+    headers:
+      - path: /*
+        headers:
+          - key: X-Frame-Options
+            value: SAMEORIGIN
+          - key: X-Content-Type-Options
+            value: nosniff
+          - key: Referrer-Policy
+            value: strict-origin-when-cross-origin
