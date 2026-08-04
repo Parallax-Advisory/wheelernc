@@ -7,16 +7,16 @@ services:
     branch: main
     buildCommand: ""
     staticPublishPath: .
-    pullRequestPreviewsEnabled: false
     domains:
       - wheelernc.com
       - www.wheelernc.com
     headers:
       - path: /*
-        headers:
-          - key: X-Frame-Options
-            value: SAMEORIGIN
-          - key: X-Content-Type-Options
-            value: nosniff
-          - key: Referrer-Policy
-            value: strict-origin-when-cross-origin
+        name: X-Frame-Options
+        value: sameorigin
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
