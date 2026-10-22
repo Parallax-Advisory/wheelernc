@@ -559,4 +559,7 @@ p { font-size: 18px; margin: 0 0 18px; }
 }
 
 .masthead { padding-bottom: 0; }
-.portrait img { object-position: center 20%; }
+.portrait img { object-position: center 15%; }
+
+.gallery img { height: auto; object-fit: unset; }
+.gallery { align-items: start; }
