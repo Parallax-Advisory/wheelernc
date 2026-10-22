@@ -563,3 +563,9 @@ p { font-size: 18px; margin: 0 0 18px; }
 
 .gallery img { height: auto; object-fit: unset; }
 .gallery { align-items: start; }
+
+.inline-photo { float: right; width: 300px; margin: 6px 0 14px 28px; }
+.inline-photo img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+.inline-photo figcaption { font-size: 14px; color: #4a5368; margin-top: 6px; line-height: 1.4; }
+.story::after, #highlights::after { content: ""; display: table; clear: both; }
+@media (max-width: 640px) { .inline-photo { float: none; width: 100%; margin: 0 0 16px; } }
