@@ -390,3 +390,173 @@ p { font-size: 18px; margin: 0 0 18px; }
 
   .site-footer { display: none; }
 }
+
+/* ---------- 2026 additions: masthead grid, nav, cards, timeline, stories, gallery, press ---------- */
+
+.masthead-grid {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 40px;
+  align-items: start;
+}
+
+.lede {
+  font-size: 19px;
+  line-height: 1.6;
+  color: #dbe3f1;
+  margin: 0 0 28px;
+  max-width: 640px;
+}
+
+.portrait { margin: 6px 0 0; }
+.portrait img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--accent);
+  display: block;
+}
+
+.site-nav {
+  background: var(--navy-soft);
+  margin-top: 48px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+.site-nav .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 26px;
+}
+.site-nav a {
+  color: #e8edf6;
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 0;
+  border-bottom: 3px solid transparent;
+}
+.site-nav a:hover, .site-nav a:focus { border-bottom-color: var(--accent); color: #fff; }
+
+.section-intro { font-size: 19px; color: #4a5368; margin-bottom: 30px; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+.card {
+  border: 1px solid var(--rule);
+  border-top: 4px solid var(--accent);
+  padding: 22px 24px 18px;
+  background: #fbfbfc;
+}
+.card h3 { font-size: 21px; margin-bottom: 4px; }
+.card h3 a { color: var(--navy); text-decoration: none; border-bottom: 1px solid rgba(15,31,61,0.25); }
+.card h3 a:hover { border-bottom-color: var(--navy); }
+.card .kicker {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5c6478;
+  margin: 0 0 12px;
+}
+.card p { font-size: 16px; line-height: 1.55; margin: 0; }
+
+.timeline { list-style: none; margin: 0; padding: 0; border-left: 3px solid var(--accent); }
+.timeline li {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 18px;
+  padding: 0 0 22px 24px;
+  position: relative;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 8px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 3px solid var(--accent);
+}
+.timeline .when {
+  font-weight: 700;
+  color: var(--navy-soft);
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-top: 2px;
+}
+.timeline .what { font-size: 17px; line-height: 1.55; }
+
+.story { margin: 0 0 36px; }
+.story:last-child { margin-bottom: 0; }
+.story h3 { margin-bottom: 10px; }
+.story p { font-size: 18px; line-height: 1.7; margin: 0; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+}
+.gallery figure { margin: 0; }
+.gallery img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  border: 1px solid var(--rule);
+}
+.gallery figcaption { font-size: 15px; color: #4a5368; margin-top: 8px; line-height: 1.45; }
+
+.media-group {
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 34px 0 12px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+.media-group:first-of-type { margin-top: 0; }
+.press { list-style: none; margin: 0; padding: 0; }
+.press li { border-bottom: 1px solid var(--rule); }
+.press a {
+  display: grid;
+  grid-template-columns: 190px 1fr 90px;
+  gap: 16px;
+  padding: 11px 0;
+  text-decoration: none;
+  color: var(--body-text);
+  align-items: baseline;
+}
+.press a:hover .headline { color: var(--navy); text-decoration: underline; }
+.press .outlet { font-weight: 700; color: var(--navy-soft); font-size: 15px; }
+.press .headline { font-size: 16px; line-height: 1.4; }
+.press .date { font-size: 14px; color: #5c6478; text-align: right; white-space: nowrap; }
+
+.site-footer a { color: #dbe3f1; text-decoration: none; border-bottom: 1px solid rgba(219,227,241,0.4); }
+
+@media (max-width: 760px) {
+  .masthead-grid { grid-template-columns: 1fr; }
+  .portrait { order: -1; }
+  .portrait img { width: 150px; height: 150px; }
+  .cards, .gallery { grid-template-columns: 1fr; }
+  .gallery img { height: 240px; }
+  .timeline li { grid-template-columns: 1fr; gap: 4px; }
+  .press a { grid-template-columns: 1fr; gap: 2px; }
+  .press .date { text-align: left; }
+  .site-nav .wrap { gap: 0 18px; }
+  .site-nav a { font-size: 13px; padding: 11px 0; }
+}
+
+@media print {
+  .site-nav, .portrait, #now, #photos, #media, #stories { display: none; }
+}
+
+.masthead { padding-bottom: 0; }
+.portrait img { object-position: center 20%; }
