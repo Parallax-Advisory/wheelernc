@@ -569,3 +569,9 @@ p { font-size: 18px; margin: 0 0 18px; }
 .inline-photo figcaption { font-size: 14px; color: #4a5368; margin-top: 6px; line-height: 1.4; }
 .story::after, #highlights::after { content: ""; display: table; clear: both; }
 @media (max-width: 640px) { .inline-photo { float: none; width: 100%; margin: 0 0 16px; } }
+
+.clip-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; clear: both; margin-top: 18px; }
+.clip-row .clip { margin: 0; }
+.clip-row .clip img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+.clip-row .clip figcaption { font-size: 14px; color: #4a5368; margin-top: 6px; line-height: 1.4; }
+@media (max-width: 640px) { .clip-row { grid-template-columns: 1fr; } }
