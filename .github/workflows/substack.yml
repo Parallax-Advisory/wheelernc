@@ -1,0 +1,20 @@
+name: Refresh Substack posts
+on:
+  schedule:
+    - cron: "0 11 * * *"  # 6:00 AM Eastern (EST); 7:00 AM during daylight time
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/update_substack.py
+      - run: |
+          if ! git diff --quiet; then
+            git config user.name "wheelernc-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git commit -am "Refresh latest Substack posts"
+            git push
+          fi
