@@ -587,3 +587,28 @@ p { font-size: 18px; margin: 0 0 18px; }
 .video .vdate { color: #5c6478; font-size: 14px; white-space: nowrap; }
 @media (max-width: 760px) { .videos { grid-template-columns: 1fr; } }
 @media print { #writing { display: none; } }
+
+/* Photos: larger framed tiles, featured first photo, click to enlarge */
+#photos .gallery { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+#photos .gallery figure { background: #fff; border: 1px solid var(--rule); box-shadow: 0 6px 20px rgba(15,31,61,0.10); padding: 10px 10px 14px; border-radius: 4px; }
+#photos .gallery img { width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; object-position: center 30%; border: 0; cursor: zoom-in; }
+#photos .gallery figure:first-child { grid-column: 1 / -1; }
+#photos .gallery figure:first-child img { aspect-ratio: 3 / 2; }
+#photos .gallery figcaption { padding: 0 4px; }
+@media (max-width: 760px) { #photos .gallery { grid-template-columns: 1fr; } }
+
+/* Timeline photos */
+.tl-photo { margin: 12px 0 4px; max-width: 460px; }
+.tl-photo img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); border-radius: 3px; cursor: zoom-in; }
+.tl-photo figcaption { font-size: 13px; color: #5c6478; margin-top: 5px; line-height: 1.4; }
+.tl-photo figcaption a { color: inherit; }
+.tl-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 760px; }
+.tl-pair .tl-photo { max-width: none; }
+@media (max-width: 640px) { .tl-pair { grid-template-columns: 1fr; } }
+
+.lightbox { position: fixed; inset: 0; background: rgba(8,14,28,0.92); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 1000; padding: 24px; cursor: zoom-out; }
+.lightbox[hidden] { display: none; }
+.lightbox img { max-width: 94vw; max-height: 84vh; object-fit: contain; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+.lb-cap { color: #e8edf6; font-size: 15px; margin-top: 12px; text-align: center; max-width: 800px; }
+.lb-close { position: absolute; top: 14px; right: 20px; background: none; border: 0; color: #fff; font-size: 40px; cursor: pointer; line-height: 1; }
+@media print { .tl-photo, .tl-pair { display: none; } }
